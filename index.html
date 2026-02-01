@@ -11,49 +11,130 @@
  --gold:#d4af37;
 }
 
-body{margin:0;font-family:Arial;background:#f5f6fa}
-header{background:var(--navy);padding:15px;color:#fff}
-header b{color:var(--gold);font-size:24px}
-
-nav a{color:#fff;margin-left:20px;text-decoration:none;font-weight:bold}
-
-.hero{
- background:linear-gradient(120deg,#0b1f33,#12395f);
- color:white;text-align:center;padding:50px
+body{
+ margin:0;
+ font-family:Segoe UI,Arial;
+ background:#f4f6f8;
 }
+
+/* HEADER */
+header{
+ background:var(--navy);
+ padding:15px 30px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ color:white;
+}
+header h2{margin:0;color:var(--gold)}
+header nav a{
+ color:white;
+ margin-left:20px;
+ text-decoration:none;
+ font-weight:500;
+}
+
+/* HERO */
+.hero{
+ background:linear-gradient(135deg,#0b1f33,#123a63);
+ color:white;
+ padding:60px 20px;
+ text-align:center;
+}
+.hero h1{font-size:38px;margin-bottom:10px}
+.hero p{opacity:.9}
 
 .hero button{
- padding:12px 25px;margin:10px;border:none;
- font-weight:bold;border-radius:6px;cursor:pointer
+ margin:15px 8px;
+ padding:14px 28px;
+ border:none;
+ border-radius:8px;
+ font-weight:600;
+ cursor:pointer;
+ font-size:15px;
 }
-
 .buy{background:var(--gold)}
 .rent{background:white}
 
-.section{padding:30px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+/* SECTION */
+.section{padding:40px 30px}
 
+/* PROPERTY CARDS */
+.cards{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+ gap:25px;
+}
 .card{
- background:#fff;border-radius:10px;overflow:hidden;
- box-shadow:0 5px 10px rgba(0,0,0,.1)
+ background:white;
+ border-radius:14px;
+ overflow:hidden;
+ box-shadow:0 8px 18px rgba(0,0,0,.12);
+ transition:.3s;
+}
+.card:hover{transform:translateY(-5px)}
+
+.card img{
+ width:100%;
+ height:190px;
+ object-fit:cover;
+}
+.card .info{
+ padding:15px;
+}
+.price{
+ color:var(--navy);
+ font-weight:700;
+ margin:5px 0;
+}
+.card button{
+ width:100%;
+ padding:10px;
+ border:none;
+ background:var(--navy);
+ color:white;
+ border-radius:6px;
+ cursor:pointer;
+ margin-top:8px;
 }
 
-.card img{width:100%;height:180px;object-fit:cover}
-.card div{padding:15px}
-.price{color:var(--navy);font-weight:bold}
+/* POST PROPERTY CARD UI */
+.post-card{
+ background:white;
+ max-width:900px;
+ margin:auto;
+ border-radius:16px;
+ padding:25px;
+ box-shadow:0 10px 25px rgba(0,0,0,.15);
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:20px;
+}
+.post-card h3{grid-column:1/-1}
 
-button.full{
- width:100%;padding:10px;border:none;
- background:var(--navy);color:#fff;border-radius:5px
+.post-card input,.post-card select{
+ padding:12px;
+ border-radius:8px;
+ border:1px solid #ccc;
+ font-size:14px;
+}
+.post-card button{
+ grid-column:1/-1;
+ background:var(--gold);
+ border:none;
+ padding:14px;
+ border-radius:10px;
+ font-weight:700;
+ cursor:pointer;
 }
 
-input,select{
- width:100%;padding:10px;margin-bottom:10px
-}
-
+/* FOOTER */
 footer{
- background:var(--navy);color:#fff;
- text-align:center;padding:15px;margin-top:40px
+ background:var(--navy);
+ color:white;
+ text-align:center;
+ padding:15px;
+ margin-top:50px;
 }
 </style>
 </head>
@@ -61,56 +142,45 @@ footer{
 <body>
 
 <header>
- <b>M Homes</b>
- <nav style="float:right">
+ <h2>M Homes</h2>
+ <nav>
   <a href="#home">Home</a>
-  <a href="#post">Post</a>
-  <a href="#admin">Admin</a>
+  <a href="#post">Post Property</a>
  </nav>
 </header>
 
-<!-- HERO -->
 <div class="hero" id="home">
  <h1>India’s Simple Property Platform</h1>
- <p>No Brokers • Direct Owners</p>
- <button class="buy" onclick="filterType('Buy')">Buy</button>
- <button class="rent" onclick="filterType('Rent')">Rent</button>
+ <p>No brokers • Direct owners • Trusted listings</p>
+ <button class="buy" onclick="showType('Buy')">Buy</button>
+ <button class="rent" onclick="showType('Rent')">Rent</button>
 </div>
 
-<!-- SEARCH -->
 <div class="section">
- <input placeholder="Search Location" onkeyup="searchLocation(this.value)">
-</div>
-
-<!-- PROPERTIES -->
-<div class="section">
- <h2 id="title">Properties</h2>
+ <h2 id="title">Featured Properties</h2>
  <div class="cards" id="list"></div>
 </div>
 
 <!-- POST PROPERTY -->
 <div class="section" id="post">
- <h2>Post Property</h2>
+ <div class="post-card">
+  <h3>Post Your Property</h3>
 
- <select id="ptype">
-  <option>Buy</option>
-  <option>Rent</option>
- </select>
+  <select id="ptype">
+   <option value="Buy">For Sale</option>
+   <option value="Rent">For Rent</option>
+  </select>
+  <input id="bhk" placeholder="BHK (2BHK / 3BHK)">
 
- <input id="bhk" placeholder="BHK (2BHK, 3BHK)">
- <input id="loc" placeholder="Location">
- <input id="price" placeholder="Price">
- <input id="phone" placeholder="WhatsApp Number">
- <input id="img" placeholder="Image URL">
- <input id="map" placeholder="Google Map Embed URL">
+  <input id="loc" placeholder="Location">
+  <input id="price" placeholder="Price">
 
- <button class="full" onclick="postProperty()">Submit (Admin Approval)</button>
-</div>
+  <input id="phone" placeholder="WhatsApp Number">
+  <input id="img" placeholder="Image URL">
 
-<!-- ADMIN -->
-<div class="section" id="admin">
- <h2>Admin Panel</h2>
- <div id="pending"></div>
+  <input id="map" placeholder="Google Map Embed URL">
+  <button onclick="addProperty()">Submit Property</button>
+ </div>
 </div>
 
 <footer>
@@ -120,93 +190,68 @@ footer{
 <script>
 let properties=[
  {
-  type:"Buy",bhk:"3BHK",loc:"Kondapur",
-  price:"₹1.25 Cr",phone:"919999999999",
+  type:"Buy",
+  bhk:"3 BHK Apartment",
+  loc:"Kondapur, Hyderabad",
+  price:"₹1.2 Cr",
+  phone:"919999999999",
   img:"https://images.unsplash.com/photo-1568605114967-8130f3a36994",
-  map:"https://maps.google.com/maps?q=kondapur&t=&z=13&ie=UTF8&iwloc=&output=embed",
-  approved:true
+  map:"https://maps.google.com/maps?q=kondapur&t=&z=13&output=embed"
  },
  {
-  type:"Rent",bhk:"2BHK",loc:"Madhapur",
-  price:"₹28,000 / month",phone:"918888888888",
+  type:"Rent",
+  bhk:"2 BHK Flat",
+  loc:"Madhapur, Hyderabad",
+  price:"₹30,000 / month",
+  phone:"918888888888",
   img:"https://images.unsplash.com/photo-1598928506311-c55ded91a20c",
-  map:"https://maps.google.com/maps?q=madhapur&t=&z=13&ie=UTF8&iwloc=&output=embed",
-  approved:true
+  map:"https://maps.google.com/maps?q=madhapur&t=&z=13&output=embed"
  }
 ];
 
-function render(){
- let html="";
- properties.filter(p=>p.approved).forEach(p=>{
-  html+=`
+function render(list){
+ document.getElementById("list").innerHTML="";
+ list.forEach(p=>{
+  document.getElementById("list").innerHTML+=`
   <div class="card">
    <img src="${p.img}">
-   <div>
-    <h3>${p.bhk} - ${p.type}</h3>
+   <div class="info">
+    <h3>${p.bhk}</h3>
     <p>${p.loc}</p>
     <div class="price">${p.price}</div>
     <a href="https://wa.me/${p.phone}" target="_blank">
-     <button class="full">WhatsApp Owner</button>
+     <button>Contact on WhatsApp</button>
     </a>
     <iframe src="${p.map}" width="100%" height="150"></iframe>
    </div>
   </div>`;
  });
- document.getElementById("list").innerHTML=html;
 }
 
-function filterType(t){
+function showType(t){
  document.getElementById("title").innerText=t+" Properties";
- document.getElementById("list").innerHTML="";
- properties.filter(p=>p.type==t && p.approved).forEach(p=>{
-  document.getElementById("list").innerHTML+=`
-   <div class="card">
-    <img src="${p.img}">
-    <div>
-     <h3>${p.bhk}</h3>
-     <p>${p.loc}</p>
-     <div class="price">${p.price}</div>
-     <a href="https://wa.me/${p.phone}" target="_blank">
-      <button class="full">WhatsApp Owner</button>
-     </a>
-    </div>
-   </div>`;
- });
+ render(properties.filter(p=>p.type===t));
 }
 
-function postProperty(){
+function addProperty(){
  properties.push({
-  type:ptype.value,bhk:bhk.value,loc:loc.value,
-  price:price.value,phone:phone.value,img:img.value,
-  map:map.value,approved:false
+  type:ptype.value,
+  bhk:bhk.value,
+  loc:loc.value,
+  price:price.value,
+  phone:phone.value,
+  img:img.value,
+  map:map.value
  });
- alert("Submitted for admin approval");
- renderAdmin();
+ alert("Property added successfully!");
+ render(properties);
 }
 
-function renderAdmin(){
- let h="";
- properties.filter(p=>!p.approved).forEach((p,i)=>{
-  h+=`
-  <p>${p.bhk} ${p.loc}
-  <button onclick="approve(${i})">Approve</button></p>`;
- });
- document.getElementById("pending").innerHTML=h;
-}
-
-function approve(i){properties[i].approved=true;render();renderAdmin()}
-function searchLocation(v){
- document.getElementById("list").innerHTML="";
- properties.filter(p=>p.loc.toLowerCase().includes(v.toLowerCase()) && p.approved)
- .forEach(p=>{document.getElementById("list").innerHTML+=`
-  <div class="card"><img src="${p.img}">
-  <div><h3>${p.bhk}</h3><p>${p.loc}</p></div></div>`});
-}
-
-render(); renderAdmin();
+render(properties);
 </script>
 
 </body>
 </html>
+
 
 
