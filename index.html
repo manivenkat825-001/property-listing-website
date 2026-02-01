@@ -1,12 +1,101 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Property Website</title>
+  <title>Property Listing Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f2f2f2;
+    }
+    header {
+      background: #1e40af;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+    }
+    .price {
+      color: green;
+      font-weight: bold;
+    }
+    .btn {
+      display: block;
+      text-align: center;
+      background: #16a34a;
+      color: white;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #1e40af;
+      color: white;
+    }
+  </style>
 </head>
+
 <body>
+
+<header>
   <h1>Property Listing Website</h1>
-  <p>My website is working 🎉</p>
-  <p>People can list plots, flats and rental houses.</p>
+  <p>Buy • Sell • Rent Properties</p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994">
+    <h3>2 BHK Flat</h3>
+    <p class="price">₹45,00,000</p>
+    <p>Gajularamaram, Hyderabad</p>
+    <a class="btn" href="tel:9876543210">Contact Owner</a>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1572120360610-d971b9b78827">
+    <h3>Residential Plot</h3>
+    <p class="price">₹18,00,000</p>
+    <p>Kukatpally, Hyderabad</p>
+    <a class="btn" href="tel:9876543210">Contact Owner</a>
+  </div>
+
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c">
+    <h3>1 BHK Rental</h3>
+    <p class="price">₹12,000 / month</p>
+    <p>Bachupally, Hyderabad</p>
+    <a class="btn" href="tel:9876543210">Contact Owner</a>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Property Listing Website
+</footer>
+
 </body>
 </html>
