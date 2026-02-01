@@ -2,309 +2,198 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>M Homes | Buy, Rent & Sell Properties</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>M Homes | Buy, Sell & Rent Properties</title>
+
   <style>
-    :root{
-      --primary:#0b2a4a;      /* Dark Blue */
-      --accent:#16a34a;       /* Green */
-      --bg:#f4f6f8;           /* Light Grey */
-      --card:#ffffff;
-      --text:#1f2937;
-    }
-    body{
-      margin:0;
-      font-family:Arial,Helvetica,sans-serif;
-      background:var(--bg);
-      color:var(--text);
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #222;
     }
 
-    /* Header */
-    header{
-      background:var(--primary);
-      color:white;
-      padding:14px 24px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .logo{
-      font-size:22px;
-      font-weight:bold;
-    }
-    .logo span{ color:var(--accent); }
-    nav a{
-      color:white;
-      margin-left:18px;
-      text-decoration:none;
-      font-size:14px;
+    header {
+      background: #0b1c2d;
+      color: gold;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    /* Hero Search */
-    .hero{
-      background:linear-gradient(135deg,var(--primary),#123a63);
-      padding:40px 20px;
-      text-align:center;
-      color:white;
-    }
-    .hero h1{ margin-bottom:10px; }
-    .search-bar{
-      margin-top:20px;
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-    .search-bar select,
-    .search-bar input{
-      padding:12px;
-      border:none;
-      border-radius:6px;
-      min-width:180px;
-    }
-    .search-bar button{
-      padding:12px 20px;
-      border:none;
-      border-radius:6px;
-      background:var(--accent);
-      color:white;
-      cursor:pointer;
+    header h1 {
+      margin: 0;
+      font-size: 26px;
     }
 
-    /* Layout */
-    .main{
-      display:grid;
-      grid-template-columns:260px 1fr;
-      gap:20px;
-      padding:20px;
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    /* Filters */
-    .filters{
-      background:var(--card);
-      padding:16px;
-      border-radius:10px;
-      box-shadow:0 4px 10px rgba(0,0,0,0.08);
-      height:fit-content;
-    }
-    .filters h3{ margin-bottom:10px; }
-    .filters label{
-      font-size:13px;
-      display:block;
-      margin-top:10px;
-    }
-    .filters input,
-    .filters select{
-      width:100%;
-      padding:8px;
-      margin-top:4px;
+    .hero {
+      background: linear-gradient(135deg, #0b1c2d, #1f3b5c);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
     }
 
-    /* Cards */
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:20px;
-    }
-    .card{
-      background:var(--card);
-      border-radius:12px;
-      overflow:hidden;
-      box-shadow:0 6px 14px rgba(0,0,0,0.1);
-    }
-    .card img{
-      width:100%;
-      height:180px;
-      object-fit:cover;
-    }
-    .card-body{ padding:14px; }
-    .badge{
-      display:inline-block;
-      background:#e0f2fe;
-      color:#0369a1;
-      font-size:12px;
-      padding:3px 8px;
-      border-radius:6px;
-      margin-bottom:6px;
-    }
-    .price{
-      color:var(--accent);
-      font-weight:bold;
-      margin:6px 0;
-    }
-    .actions{
-      display:flex;
-      gap:10px;
-      margin-top:10px;
-    }
-    .actions a{
-      flex:1;
-      text-align:center;
-      padding:8px;
-      border-radius:6px;
-      text-decoration:none;
-      color:white;
-      font-size:14px;
-    }
-    .call{ background:var(--accent); }
-    .whatsapp{ background:#25d366; }
-
-    /* Footer */
-    footer{
-      background:var(--primary);
-      color:white;
-      text-align:center;
-      padding:14px;
-      font-size:13px;
-      margin-top:30px;
+    .hero h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
     }
 
-    /* Mobile */
-    @media(max-width:768px){
-      .main{ grid-template-columns:1fr; }
+    .hero p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    .buttons {
+      margin-top: 25px;
+    }
+
+    .buttons button {
+      background: gold;
+      border: none;
+      padding: 12px 22px;
+      margin: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #0b1c2d;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card .info {
+      padding: 15px;
+    }
+
+    .card h4 {
+      margin: 0 0 8px;
+    }
+
+    .card p {
+      margin: 4px 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .card button {
+      margin-top: 10px;
+      width: 100%;
+      background: #0b1c2d;
+      color: gold;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #0b1c2d;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div class="logo">M <span>Homes</span></div>
-  <nav>
-    <a href="#">Buy</a>
-    <a href="#">Rent</a>
-    <a href="#">Sell</a>
-    <a href="#">Post Property</a>
-  </nav>
-</header>
+  <header>
+    <h1>M Homes</h1>
+    <nav>
+      <a href="#">Buy</a>
+      <a href="#">Rent</a>
+      <a href="#">Sell</a>
+      <a href="#">Post Property</a>
+    </nav>
+  </header>
 
-<section class="hero">
-  <h1>Find the Right Home Near You</h1>
-  <p>Verified owners • Local focus • Direct contact</p>
-  <div class="search-bar">
-    <select>
-      <option>Buy</option>
-      <option>Rent</option>
-    </select>
-    <input type="text" placeholder="Enter city or locality" />
-    <button>Search</button>
-  </div>
-</section>
-
-<div class="main">
-
-  <!-- Filters -->
-  <aside class="filters">
-    <h3>Filters</h3>
-    <label>Property Type</label>
-    <select>
-      <option>Any</option>
-      <option>Flat</option>
-      <option>Plot</option>
-      <option>House</option>
-    </select>
-
-    <label>Budget</label>
-    <input type="text" placeholder="Min" />
-    <input type="text" placeholder="Max" />
-
-    <label>BHK</label>
-    <select>
-      <option>Any</option>
-      <option>1 BHK</option>
-      <option>2 BHK</option>
-      <option>3 BHK</option>
-    </select>
-  </aside>
-
-  <!-- Listings -->
-  <section class="cards">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" />
-      <div class="card-body">
-        <div class="badge">Owner Verified</div>
-        <h3>2 BHK Apartment</h3>
-        <div class="price">₹45 Lakhs</div>
-        <p>Gajularamaram, Hyderabad</p>
-        <div class="actions">
-          <a class="call" href="tel:9876543210">Call</a>
-          <a class="whatsapp" href="https://wa.me/919876543210">WhatsApp</a>
-        </div>
-      </div>
+  <section class="hero">
+    <h2>Find Your Perfect Home</h2>
+    <p>Buy, Rent or Sell properties directly from owners</p>
+    <div class="buttons">
+      <button>Buy</button>
+      <button>Rent</button>
+      <button>Post Property</button>
     </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1572120360610-d971b9b78827" />
-      <div class="card-body">
-        <div class="badge">Owner Verified</div>
-        <h3>Residential Plot</h3>
-        <div class="price">₹18 Lakhs</div>
-        <p>Kukatpally, Hyderabad</p>
-        <div class="actions">
-          <a class="call" href="tel:9876543210">Call</a>
-          <a class="whatsapp" href="https://wa.me/919876543210">WhatsApp</a>
-        </div>
-      </div>
-    </div>
-
   </section>
-</div>
 
-<!-- Post Property Form -->
-<!-- Google Maps Section -->
-<section class="section" style="padding:30px 20px;">
-  <h2>Property Location on Map</h2>
-  <p style="font-size:14px;color:#555;">Customers can view the exact location and get directions.</p>
+  <section class="section">
+    <h3>Featured Properties</h3>
 
-  <div style="max-width:900px;margin-top:15px;border-radius:12px;overflow:hidden;box-shadow:0 6px 14px rgba(0,0,0,0.08);">
-    <iframe 
-      src="https://www.google.com/maps?q=Gajularamaram,Hyderabad&output=embed" 
-      width="100%" 
-      height="350" 
-      style="border:0;" 
-      allowfullscreen="" 
-      loading="lazy">
-    </iframe>
-  </div>
-</section>
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" />
+        <div class="info">
+          <h4>3 BHK Apartment</h4>
+          <p>Location: Kondapur, Hyderabad</p>
+          <p>Price: ₹1.2 Cr</p>
+          <button>Contact Owner</button>
+        </div>
+      </div>
 
-<section class="section" style="padding:30px 20px;">
-  <h2>Post Your Property (Free)</h2>
-  <p style="font-size:14px;color:#555;">Owners can list properties directly. No brokers.</p>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" />
+        <div class="info">
+          <h4>Independent House</h4>
+          <p>Location: Gachibowli</p>
+          <p>Rent: ₹35,000 / month</p>
+          <button>Contact Owner</button>
+        </div>
+      </div>
 
-  <form style="background:white;max-width:600px;padding:20px;border-radius:12px;box-shadow:0 6px 14px rgba(0,0,0,0.08);">
-    <label>Property Type</label><br/>
-    <select style="width:100%;padding:10px;margin:6px 0 12px;">
-      <option>Flat</option>
-      <option>House</option>
-      <option>Plot</option>
-      <option>Rental</option>
-    </select>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1572120360610-d971b9b78825" />
+        <div class="info">
+          <h4>Residential Plot</h4>
+          <p>Location: Shadnagar</p>
+          <p>Price: ₹45 Lakhs</p>
+          <button>Contact Owner</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <label>Price</label><br/>
-    <input type="text" placeholder="Enter price" style="width:100%;padding:10px;margin:6px 0 12px;" />
-
-    <label>Full Address</label><br/>
-    <textarea placeholder="Enter full property address" style="width:100%;padding:10px;margin:6px 0 12px;"></textarea>
-
-    <label>Owner Phone Number</label><br/>
-    <input type="text" placeholder="10-digit mobile number" style="width:100%;padding:10px;margin:6px 0 12px;" />
-
-    <label>Image URL</label><br/>
-    <input type="text" placeholder="Paste image link" style="width:100%;padding:10px;margin:6px 0 12px;" />
-
-    <label>Video URL (optional)</label><br/>
-    <input type="text" placeholder="YouTube video link" style="width:100%;padding:10px;margin:6px 0 12px;" />
-
-    <button type="button" style="background:var(--accent);color:white;border:none;padding:12px 20px;border-radius:8px;font-size:16px;">Submit Property</button>
-  </form>
-</section>
-
-<footer>
-  © 2026 M Homes • Trusted Local Property Platform
-</footer>
+  <footer>
+    © 2026 M Homes | Real Estate Platform
+  </footer>
 
 </body>
-</html>
-
 </html>
