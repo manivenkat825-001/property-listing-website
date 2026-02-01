@@ -1,199 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>M Homes | Buy, Rent & Sell Properties</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>M Homes | Buy & Rent Properties</title>
+<meta name="description" content="M Homes – Buy, Rent and Sell properties directly from owners.">
+<meta name="keywords" content="real estate, buy house, rent flat, M Homes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      color: #222;
-    }
-
-    header {
-      background: #0b1c2d;
-      color: gold;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 26px;
-    }
-
-    nav a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #0b1c2d, #1f3b5c);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .hero h2 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      opacity: 0.9;
-    }
-
-    .buttons {
-      margin-top: 25px;
-    }
-
-    .buttons button {
-      background: gold;
-      border: none;
-      padding: 12px 22px;
-      margin: 10px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-
-    .section {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .section h3 {
-      font-size: 28px;
-      margin-bottom: 20px;
-      color: #0b1c2d;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-
-    .card .info {
-      padding: 15px;
-    }
-
-    .card h4 {
-      margin: 0 0 8px;
-    }
-
-    .card p {
-      margin: 4px 0;
-      font-size: 14px;
-      color: #555;
-    }
-
-    .card button {
-      margin-top: 10px;
-      width: 100%;
-      background: #0b1c2d;
-      color: gold;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
-    footer {
-      background: #0b1c2d;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-  </style>
+<style>
+body{margin:0;font-family:Arial;background:#f4f4f4}
+header{background:#0b1c2d;color:gold;padding:15px 30px;display:flex;justify-content:space-between}
+nav a{color:white;margin-left:15px;text-decoration:none;font-weight:bold}
+.hero{background:#0b1c2d;color:white;text-align:center;padding:50px}
+.section{max-width:1100px;margin:auto;padding:30px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:white;border-radius:8px;overflow:hidden}
+.card img{width:100%;height:180px;object-fit:cover}
+.info{padding:15px}
+button{padding:10px;border:none;background:#0b1c2d;color:gold;font-weight:bold;cursor:pointer}
+input,select{width:100%;padding:10px;margin:6px 0}
+footer{background:#0b1c2d;color:white;text-align:center;padding:15px}
+.hidden{display:none}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>M Homes</h1>
-    <nav>
-      <a href="#">Buy</a>
-      <a href="#">Rent</a>
-      <a href="#">Sell</a>
-      <a href="#">Post Property</a>
-    </nav>
-  </header>
+<header>
+<h2>M Homes</h2>
+<nav>
+<a onclick="show('list')">Home</a>
+<a onclick="show('post')">Post</a>
+<a onclick="show('admin')">Admin</a>
+</nav>
+</header>
 
-  <section class="hero">
-    <h2>Find Your Perfect Home</h2>
-    <p>Buy, Rent or Sell properties directly from owners</p>
-    <div class="buttons">
-      <button>Buy</button>
-      <button>Rent</button>
-      <button>Post Property</button>
-    </div>
-  </section>
+<section class="hero">
+<h1>India’s Simple Property Platform</h1>
+<p>No brokers • Direct owners • Trusted listings</p>
+</section>
 
-  <section class="section">
-    <h3>Featured Properties</h3>
+<section id="list" class="section">
+<h3>Approved Properties</h3>
+<div class="cards" id="approved"></div>
+</section>
 
-    <div class="cards">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" />
-        <div class="info">
-          <h4>3 BHK Apartment</h4>
-          <p>Location: Kondapur, Hyderabad</p>
-          <p>Price: ₹1.2 Cr</p>
-          <button>Contact Owner</button>
-        </div>
-      </div>
+<section id="post" class="section hidden">
+<h3>Owner Login</h3>
+<input id="owner" placeholder="Owner Name">
+<input id="whatsapp" placeholder="WhatsApp Number">
+<button onclick="login()">Login</button>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" />
-        <div class="info">
-          <h4>Independent House</h4>
-          <p>Location: Gachibowli</p>
-          <p>Rent: ₹35,000 / month</p>
-          <button>Contact Owner</button>
-        </div>
-      </div>
+<div id="postForm" class="hidden">
+<h3>Post Property</h3>
+<input id="title" placeholder="Property Title">
+<input id="location" placeholder="Location">
+<input id="price" placeholder="Price / Rent">
+<select id="type"><option>Buy</option><option>Rent</option></select>
+<input id="image" placeholder="Image URL">
+<button onclick="postProperty()">Submit</button>
+</div>
+</section>
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1572120360610-d971b9b78825" />
-        <div class="info">
-          <h4>Residential Plot</h4>
-          <p>Location: Shadnagar</p>
-          <p>Price: ₹45 Lakhs</p>
-          <button>Contact Owner</button>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="admin" class="section hidden">
+<h3>Admin Panel</h3>
+<div class="cards" id="pending"></div>
+</section>
 
-  <footer>
-    © 2026 M Homes | Real Estate Platform
-  </footer>
+<footer>© 2026 M Homes | Built by Mani</footer>
+
+<script>
+let properties = JSON.parse(localStorage.getItem("mhomes")) || [];
+let currentOwner = "";
+
+function save(){localStorage.setItem("mhomes",JSON.stringify(properties));}
+
+function show(id){
+document.querySelectorAll(".section").forEach(s=>s.classList.add("hidden"));
+document.getElementById(id).classList.remove("hidden");
+render();
+}
+
+function login(){
+currentOwner=document.getElementById("owner").value;
+if(currentOwner)document.getElementById("postForm").classList.remove("hidden");
+}
+
+function postProperty(){
+properties.push({
+title:title.value,location:location.value,price:price.value,
+type:type.value,image:image.value||"https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+whatsapp:whatsapp.value,status:"pending"
+});
+save();alert("Sent for admin approval");
+}
+
+function approve(i){
+properties[i].status="approved";save();render();
+}
+
+function render(){
+approved.innerHTML="";pending.innerHTML="";
+properties.forEach((p,i)=>{
+let card=`<div class="card"><img src="${p.image}">
+<div class="info"><h4>${p.title}</h4>
+<p>${p.location}</p><p>${p.price}</p>
+<button onclick="window.open('https://wa.me/${p.whatsapp}')">WhatsApp</button>
+<button onclick="window.open('https://maps.google.com?q=${p.location}')">Map</button>
+</div></div>`;
+if(p.status==="approved")approved.innerHTML+=card;
+else pending.innerHTML+=card.replace("</div></div>",
+`<button onclick="approve(${i})">Approve</button></div></div>`);
+});
+}
+render();
+</script>
 
 </body>
 </html>
