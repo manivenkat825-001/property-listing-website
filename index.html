@@ -1,152 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>M Homes | Buy, Rent & Sell Properties</title>
+<meta charset="UTF-8">
+<title>M Homes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root{
-  --primary:#5b3cc4;        /* Housing purple */
-  --navy:#0b1f33;
-  --gold:#d4af37;
-  --light:#f5f6fa;
+ --navy:#0b1f33;
+ --gold:#d4af37;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{margin:0;font-family:Arial;background:#f5f6fa}
+header{background:var(--navy);padding:15px;color:#fff}
+header b{color:var(--gold);font-size:24px}
 
-body{background:#fff;color:#222}
+nav a{color:#fff;margin-left:20px;text-decoration:none;font-weight:bold}
 
-/* HEADER */
-header{
-  background:linear-gradient(90deg,var(--primary),#7a5df0);
-  padding:15px 40px;
-  color:#fff;
-}
-header .top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.logo{
-  font-size:26px;
-  font-weight:bold;
-  color:var(--gold);
-}
-nav a{
-  margin-left:25px;
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-}
-
-/* HERO */
 .hero{
-  background:linear-gradient(120deg,#6a5acd,#7b68ee);
-  padding:60px 40px;
-  color:#fff;
-}
-.hero h1{
-  font-size:40px;
-  margin-bottom:10px;
-}
-.hero p{
-  opacity:.9;
-  margin-bottom:30px;
-}
-.search-box{
-  background:#fff;
-  border-radius:12px;
-  padding:15px;
-  display:flex;
-  gap:10px;
-}
-.search-box input, .search-box select{
-  padding:12px;
-  border:1px solid #ddd;
-  border-radius:8px;
-  flex:1;
-}
-.search-box button{
-  background:var(--gold);
-  border:none;
-  padding:12px 25px;
-  font-weight:bold;
-  border-radius:8px;
-  cursor:pointer;
+ background:linear-gradient(120deg,#0b1f33,#12395f);
+ color:white;text-align:center;padding:50px
 }
 
-/* TABS */
-.tabs{
-  display:flex;
-  gap:25px;
-  margin:30px 40px;
-}
-.tabs button{
-  background:none;
-  border:none;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
-.tabs button.active{
-  color:var(--primary);
-  border-bottom:3px solid var(--primary);
-  padding-bottom:5px;
+.hero button{
+ padding:12px 25px;margin:10px;border:none;
+ font-weight:bold;border-radius:6px;cursor:pointer
 }
 
-/* LISTINGS */
-.section{
-  padding:30px 40px;
-}
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:25px;
-}
+.buy{background:var(--gold)}
+.rent{background:white}
+
+.section{padding:30px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+
 .card{
-  border:1px solid #ddd;
-  border-radius:12px;
-  overflow:hidden;
-}
-.card img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-}
-.card-body{
-  padding:15px;
-}
-.price{
-  color:var(--primary);
-  font-size:20px;
-  font-weight:bold;
-}
-.card button{
-  margin-top:10px;
-  width:100%;
-  background:var(--navy);
-  color:#fff;
-  border:none;
-  padding:10px;
-  border-radius:6px;
-  cursor:pointer;
+ background:#fff;border-radius:10px;overflow:hidden;
+ box-shadow:0 5px 10px rgba(0,0,0,.1)
 }
 
-/* MAP */
-.map{
-  margin-top:10px;
-  border-radius:8px;
-  overflow:hidden;
+.card img{width:100%;height:180px;object-fit:cover}
+.card div{padding:15px}
+.price{color:var(--navy);font-weight:bold}
+
+button.full{
+ width:100%;padding:10px;border:none;
+ background:var(--navy);color:#fff;border-radius:5px
 }
 
-/* FOOTER */
+input,select{
+ width:100%;padding:10px;margin-bottom:10px
+}
+
 footer{
-  background:var(--navy);
-  color:#fff;
-  padding:20px;
-  text-align:center;
-  margin-top:40px;
+ background:var(--navy);color:#fff;
+ text-align:center;padding:15px;margin-top:40px
 }
 </style>
 </head>
@@ -154,127 +61,152 @@ footer{
 <body>
 
 <header>
-  <div class="top">
-    <div class="logo">M Homes</div>
-    <nav>
-      <a href="#">Buy</a>
-      <a href="#">Rent</a>
-      <a href="#">Sell</a>
-      <a href="#">Post Property</a>
-    </nav>
-  </div>
+ <b>M Homes</b>
+ <nav style="float:right">
+  <a href="#home">Home</a>
+  <a href="#post">Post</a>
+  <a href="#admin">Admin</a>
+ </nav>
 </header>
 
-<section class="hero">
-  <h1>Properties to Buy & Rent in Hyderabad</h1>
-  <p>6K+ listings • Direct Owners • Verified Properties</p>
-
-  <div class="search-box">
-    <select>
-      <option>Hyderabad</option>
-      <option>Bangalore</option>
-      <option>Chennai</option>
-    </select>
-    <input placeholder="Search locality, project or landmark"/>
-    <button>Search</button>
-  </div>
-</section>
-
-<div class="tabs">
-  <button class="active">Buy</button>
-  <button>Rent</button>
+<!-- HERO -->
+<div class="hero" id="home">
+ <h1>India’s Simple Property Platform</h1>
+ <p>No Brokers • Direct Owners</p>
+ <button class="buy" onclick="filterType('Buy')">Buy</button>
+ <button class="rent" onclick="filterType('Rent')">Rent</button>
 </div>
 
-<section class="section">
-<h2>Properties for Sale</h2>
-
-<div class="cards">
-
-<div class="card">
-  <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994">
-  <div class="card-body">
-    <h3>3 BHK Apartment</h3>
-    <p>Kondapur, Hyderabad</p>
-    <div class="price">₹1.25 Cr</div>
-    <button>Contact Owner</button>
-    <div class="map">
-      <iframe src="https://maps.google.com/maps?q=Kondapur%20Hyderabad&t=&z=13&ie=UTF8&iwloc=&output=embed"
-      width="100%" height="150"></iframe>
-    </div>
-  </div>
+<!-- SEARCH -->
+<div class="section">
+ <input placeholder="Search Location" onkeyup="searchLocation(this.value)">
 </div>
 
-<div class="card">
-  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-  <div class="card-body">
-    <h3>Residential Plot</h3>
-    <p>Shadnagar, Hyderabad</p>
-    <div class="price">₹45 Lakhs</div>
-    <button>Contact Owner</button>
-    <div class="map">
-      <iframe src="https://maps.google.com/maps?q=Shadnagar&t=&z=13&ie=UTF8&iwloc=&output=embed"
-      width="100%" height="150"></iframe>
-    </div>
-  </div>
+<!-- PROPERTIES -->
+<div class="section">
+ <h2 id="title">Properties</h2>
+ <div class="cards" id="list"></div>
 </div>
 
-<div class="card">
-  <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c">
-  <div class="card-body">
-    <h3>Independent House</h3>
-    <p>Gachibowli, Hyderabad</p>
-    <div class="price">₹2.1 Cr</div>
-    <button>Contact Owner</button>
-    <div class="map">
-      <iframe src="https://maps.google.com/maps?q=Gachibowli&t=&z=13&ie=UTF8&iwloc=&output=embed"
-      width="100%" height="150"></iframe>
-    </div>
-  </div>
+<!-- POST PROPERTY -->
+<div class="section" id="post">
+ <h2>Post Property</h2>
+
+ <select id="ptype">
+  <option>Buy</option>
+  <option>Rent</option>
+ </select>
+
+ <input id="bhk" placeholder="BHK (2BHK, 3BHK)">
+ <input id="loc" placeholder="Location">
+ <input id="price" placeholder="Price">
+ <input id="phone" placeholder="WhatsApp Number">
+ <input id="img" placeholder="Image URL">
+ <input id="map" placeholder="Google Map Embed URL">
+
+ <button class="full" onclick="postProperty()">Submit (Admin Approval)</button>
 </div>
 
+<!-- ADMIN -->
+<div class="section" id="admin">
+ <h2>Admin Panel</h2>
+ <div id="pending"></div>
 </div>
-</section>
-
-<section class="section">
-<h2>Flats for Rent</h2>
-
-<div class="cards">
-
-<div class="card">
-  <img src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c">
-  <div class="card-body">
-    <h3>2 BHK Flat</h3>
-    <p>Madhapur, Hyderabad</p>
-    <div class="price">₹28,000 / month</div>
-    <button>Call Owner</button>
-    <div class="map">
-      <iframe src="https://maps.google.com/maps?q=Madhapur&t=&z=13&ie=UTF8&iwloc=&output=embed"
-      width="100%" height="150"></iframe>
-    </div>
-  </div>
-</div>
-
-<div class="card">
-  <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85">
-  <div class="card-body">
-    <h3>3 BHK Flat</h3>
-    <p>Hitech City, Hyderabad</p>
-    <div class="price">₹42,000 / month</div>
-    <button>Call Owner</button>
-    <div class="map">
-      <iframe src="https://maps.google.com/maps?q=Hitech%20City&t=&z=13&ie=UTF8&iwloc=&output=embed"
-      width="100%" height="150"></iframe>
-    </div>
-  </div>
-</div>
-
-</div>
-</section>
 
 <footer>
-© 2026 M Homes | Built by Mani
+ © 2026 M Homes | Built by Mani
 </footer>
+
+<script>
+let properties=[
+ {
+  type:"Buy",bhk:"3BHK",loc:"Kondapur",
+  price:"₹1.25 Cr",phone:"919999999999",
+  img:"https://images.unsplash.com/photo-1568605114967-8130f3a36994",
+  map:"https://maps.google.com/maps?q=kondapur&t=&z=13&ie=UTF8&iwloc=&output=embed",
+  approved:true
+ },
+ {
+  type:"Rent",bhk:"2BHK",loc:"Madhapur",
+  price:"₹28,000 / month",phone:"918888888888",
+  img:"https://images.unsplash.com/photo-1598928506311-c55ded91a20c",
+  map:"https://maps.google.com/maps?q=madhapur&t=&z=13&ie=UTF8&iwloc=&output=embed",
+  approved:true
+ }
+];
+
+function render(){
+ let html="";
+ properties.filter(p=>p.approved).forEach(p=>{
+  html+=`
+  <div class="card">
+   <img src="${p.img}">
+   <div>
+    <h3>${p.bhk} - ${p.type}</h3>
+    <p>${p.loc}</p>
+    <div class="price">${p.price}</div>
+    <a href="https://wa.me/${p.phone}" target="_blank">
+     <button class="full">WhatsApp Owner</button>
+    </a>
+    <iframe src="${p.map}" width="100%" height="150"></iframe>
+   </div>
+  </div>`;
+ });
+ document.getElementById("list").innerHTML=html;
+}
+
+function filterType(t){
+ document.getElementById("title").innerText=t+" Properties";
+ document.getElementById("list").innerHTML="";
+ properties.filter(p=>p.type==t && p.approved).forEach(p=>{
+  document.getElementById("list").innerHTML+=`
+   <div class="card">
+    <img src="${p.img}">
+    <div>
+     <h3>${p.bhk}</h3>
+     <p>${p.loc}</p>
+     <div class="price">${p.price}</div>
+     <a href="https://wa.me/${p.phone}" target="_blank">
+      <button class="full">WhatsApp Owner</button>
+     </a>
+    </div>
+   </div>`;
+ });
+}
+
+function postProperty(){
+ properties.push({
+  type:ptype.value,bhk:bhk.value,loc:loc.value,
+  price:price.value,phone:phone.value,img:img.value,
+  map:map.value,approved:false
+ });
+ alert("Submitted for admin approval");
+ renderAdmin();
+}
+
+function renderAdmin(){
+ let h="";
+ properties.filter(p=>!p.approved).forEach((p,i)=>{
+  h+=`
+  <p>${p.bhk} ${p.loc}
+  <button onclick="approve(${i})">Approve</button></p>`;
+ });
+ document.getElementById("pending").innerHTML=h;
+}
+
+function approve(i){properties[i].approved=true;render();renderAdmin()}
+function searchLocation(v){
+ document.getElementById("list").innerHTML="";
+ properties.filter(p=>p.loc.toLowerCase().includes(v.toLowerCase()) && p.approved)
+ .forEach(p=>{document.getElementById("list").innerHTML+=`
+  <div class="card"><img src="${p.img}">
+  <div><h3>${p.bhk}</h3><p>${p.loc}</p></div></div>`});
+}
+
+render(); renderAdmin();
+</script>
 
 </body>
 </html>
+
 
